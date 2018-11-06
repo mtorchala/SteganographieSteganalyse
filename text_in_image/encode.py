@@ -14,9 +14,6 @@ def text_to_binary(text):
     ascii_array = text_to_ascii(text)
     result = []
     for element in ascii_array:
-        # slice of first two elements '0b1111' -> '1111'
-        binary_element = bin(element)[2:]
-
         # [2:] Slice off the  first to chars
         result.append(format(element, "#010b")[2:])
     return result
@@ -25,7 +22,7 @@ def text_to_binary(text):
 img = Image.open("katze_gs.png")
 width, height = img.size
 pixel_map = img.load()
-text = "Jules rulez!"
+text = "IT-Sicherheit ist mein Lieblingsfach! <3"
 
 ascii_list = text_to_ascii(text)
 binary_list = text_to_binary(text)
@@ -43,15 +40,15 @@ current_pixel = 1
 binary_string_index = 0  # Index of current bit to insert
 encoded_img = Image.new(img.mode, img.size)
 print("Number of pixel:", str(pixel_max))
-for x in range(width):
-    for y in range(height):
+for y in range(height):
+    for x in range(width):
         print("\rCurrent Pixel:\t", current_pixel, end="")
 
         pixel = pixel_map[x, y]  # Pixel has a value between 0 and 254
         if binary_string_index < len(binary_string):
             # convert value from pixel to binary with 10 bit and add text bit
             encoded_pixel = (
-                format(pixel, "010b")[2:] + binary_string[binary_string_index]
+                format(pixel, "010b")[2:-1] + binary_string[binary_string_index]
             )
             encoded_img.putpixel((x, y), (int(encoded_pixel, 2)))
             binary_string_index += 1

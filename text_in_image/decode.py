@@ -40,9 +40,9 @@ total_pixel = width * height  # total number of pixels
 current_pixel = 1  # currently inspected pixel
 binary_string = ""
 print("Number of pixel:", str(total_pixel))
-for x in range(width):
-    for y in range(height):
-        print("\rCurrent Pixel:\t", current_pixel, end="")
+for y in range(height):
+    for x in range(width):
+        # print("\rCurrent Pixel:\t", current_pixel, end="")
 
         # Pixel has a value between 0 and 254
         pixel = pixel_map[x, y]
