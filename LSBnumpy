@@ -52,9 +52,9 @@ flatImage[0:maskAnd.__len__()] = np.bitwise_and(flatImage[0:maskAnd.__len__()],m
 flatImage[0:maskOr.__len__()] = np.bitwise_or(flatImage[0:maskOr.__len__()],maskOr)
 
 result = flatImage.reshape(gray.shape)
-
+result = result.astype(np.uint8)
 plt.imshow(result-gray)
 
-#finalImage = Image.fromarray(result)
+finalImage = Image.fromarray(result)
 
-#finalImage.save("katzesteg.png","PNG", quality=100, optimize=False, progressive=False)
+finalImage.save("katzesteg.png","PNG", quality=100, optimize=False, progressive=False)
