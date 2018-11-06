@@ -39,6 +39,7 @@ pixel_max = width * height
 current_pixel = 1
 binary_string_index = 0  # Index of current bit to insert
 encoded_img = Image.new(img.mode, img.size)
+
 print("Number of pixel:", str(pixel_max))
 for y in range(height):
     for x in range(width):
