@@ -41,7 +41,7 @@ numpyImage = np.array(im)
 #create a new list that acts as a mask to encode the information
 mask = [int(i) for i in str((asciiString))]
 
-print (mask)
+#print (mask)
 maskAnd = [i+254 for i in mask] #binary 11111110
 maskOr = mask
 #reshape the image from 2 dimensional [width,height] to one dimensional [width*height]
