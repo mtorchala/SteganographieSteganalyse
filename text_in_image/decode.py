@@ -32,7 +32,7 @@ def ascii_list_to_text(array):
     return result
 
 
-img = Image.open("katze_encoded.png")
+img = Image.open("katze_gs.png")
 width, height = img.size
 pixel_map = img.load()
 
