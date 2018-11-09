@@ -19,7 +19,7 @@ def text_to_binary(text):
     return result
 
 
-img = Image.open("katze_gs.png")
+img = Image.open("katze_encoded.png")
 width, height = img.size
 pixel_map = img.load()
 text = "IT-Sicherheit ist mein Lieblingsfach! <3"

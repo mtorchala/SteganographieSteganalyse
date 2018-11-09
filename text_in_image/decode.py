@@ -32,25 +32,22 @@ def ascii_list_to_text(array):
     return result
 
 
-img = Image.open("katze_gs.png")
+img = Image.open("katze_encoded.png")
 width, height = img.size
 pixel_map = img.load()
 
 total_pixel = width * height  # total number of pixels
 current_pixel = 1  # currently inspected pixel
 binary_string = ""
-print("Number of pixel:", str(total_pixel))
 for y in range(height):
     for x in range(width):
-        # print("\rCurrent Pixel:\t", current_pixel, end="")
-
         # Pixel has a value between 0 and 254
         pixel = pixel_map[x, y]
+
         # convert pixel to binary and take last bit
         binary_string += format(pixel, "#10b")[-1]
 
         current_pixel += 1
-print("\n")
 
 # Split binary string
 binary_list = into_chunks(binary_string, 8)
