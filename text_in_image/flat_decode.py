@@ -1,5 +1,5 @@
 from PIL import Image
-
+import numpy as np
 
 # Splits List in to List of chunks with same size
 # [1,2,3,4] with size 2 -> [[1,2], [3,4]]
@@ -34,20 +34,16 @@ def ascii_list_to_text(array):
 
 img = Image.open("katze_encoded.png")
 width, height = img.size
-pixel_map = img.load()
+pixel_array = np.array(img).flatten()
 
-total_pixel = width * height  # total number of pixels
-current_pixel = 1  # currently inspected pixel
+number_of_pixel = width * height  # total number of pixels
 binary_string = ""
-for y in range(height):
-    for x in range(width):
-        # Pixel has a value between 0 and 254
-        pixel = pixel_map[x, y]
+for i in range(0, number_of_pixel, 11):
+    # Pixel has a value between 0 and 254
+    pixel = pixel_array[i]
 
-        # convert pixel to binary and take last bit
-        binary_string += format(pixel, "b")[-1]
-
-        current_pixel += 1
+    # convert pixel to binary and take last bit
+    binary_string += format(pixel, "b")[-1]
 
 # Split binary string
 binary_list = into_chunks(binary_string, 8)
