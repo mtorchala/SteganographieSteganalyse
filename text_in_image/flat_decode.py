@@ -35,15 +35,17 @@ def ascii_list_to_text(array):
 img = Image.open("katze_encoded.png")
 width, height = img.size
 pixel_array = np.array(img).flatten()
+bits_per_pixel = 1
 
 number_of_pixel = width * height  # total number of pixels
 binary_string = ""
-for i in range(0, number_of_pixel, 11):
+for i in range(0, number_of_pixel, 23):
     # Pixel has a value between 0 and 254
     pixel = pixel_array[i]
 
     # convert pixel to binary and take last bit
-    binary_string += format(pixel, "b")[-1]
+    binary_string += format(pixel, "08b")[-bits_per_pixel:]
+
 
 # Split binary string
 binary_list = into_chunks(binary_string, 8)

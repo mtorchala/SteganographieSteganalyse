@@ -8,7 +8,8 @@ img_encoded = Image.open("katze_encoded.png")
 np_original = np.array(img_original)
 np_encoded = np.array(img_encoded)
 
-plt.imshow(np_encoded - np_original)
+# plt.imshow(np_encoded - np_original)
+plt.imshow(img_encoded)
 plt.show()
 
 # 640x427 = 273.280 mögliche Bits
