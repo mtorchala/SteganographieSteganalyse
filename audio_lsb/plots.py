@@ -26,12 +26,12 @@ text = (
 binary_list = text_to_binary(text)
 binary_string = "".join(binary_list)
 
-fs, data = wavfile.read("sound.wav")
+fs, data = wavfile.read("sound_2.wav")
 samples = np.array(data)
 
 dnumber_of_bits = len(text) * 8
 number_of_frames = np.array(data).shape[0]
-bits_per_frame = 10
+bits_per_frame = 8
 
 print("Number of text bits:\t", len(binary_string))
 print("Number of frames:\t", number_of_frames)
