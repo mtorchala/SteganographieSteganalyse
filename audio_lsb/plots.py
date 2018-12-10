@@ -26,7 +26,7 @@ text = (
 binary_list = text_to_binary(text)
 binary_string = "".join(binary_list)
 
-fs, data = wavfile.read("sound_2.wav")
+fs, data = wavfile.read("sound.wav")
 samples = np.array(data)
 
 dnumber_of_bits = len(text) * 8
@@ -55,6 +55,3 @@ for i in range(0, number_of_frames):
         new_wav[i] = sample
 
 wavfile.write("encoded.wav", fs, np.asarray(new_wav, dtype=np.int16))
-
-print(new_wav[0:20])
-print(samples[0:20])
