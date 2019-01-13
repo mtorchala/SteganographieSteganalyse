@@ -71,15 +71,7 @@ for ind in range(len(Yoriginal)):
 varianz_original = summe_abweichungen_original / len(Yoriginal)
 print("Varianz(Original): " + str(varianz_original))
 print("Standardabweichung(Original): " + str(varianz_original**0.5))
-plot.plot(X, Yoriginal, 'C3')
-
-#Subtraktion von Original und manipuliertem Bild im Betrag
-Ysubbetrag = []
-for ind in range(len(Yoriginal)):
-        sub = Yoriginal[ind] - Ymanipuliert[ind]
-        sub = pow(sub,2)
-        Ysubbetrag.append(sub**0.5)
-plot.plot(X,Ysubbetrag,'C7')
+plot.fill(X, Yoriginal, 'C3')
 
 
 plot.xlabel("Pixelwert")
